@@ -1,3 +1,5 @@
+@import url("../node_modules/modern-normalize/modern-normalize.css");
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -10,4 +12,40 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+/* modal re-write liba styes */
+.rs-modal-wrapper {
+  background: rgba(18, 20, 23, 0.5);
+}
+/* select re-write liba styles */
+.rs-stack {
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.rs-form-group {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.rs-form-control-label {
+  color: #8a8a89 !important;
+  font-family: Manrope !important;
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
 }
