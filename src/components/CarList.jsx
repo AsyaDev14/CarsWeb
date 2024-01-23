@@ -1,23 +1,18 @@
-import { useEffect, useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import { Layout } from "./Layout/Layout";
+import { Filter } from "./Filter/Filter";
+import {
+  MainWrapper,
+  StyledButtonLoad,
+  StyledList,
+} from "../pages/Catalog/Catalog.styled";
+import { ModalWindow } from "./Modal/Modal";
+import { CarDetails } from "./CarDetails/CarDetails";
+import CarItem from "./CarItems/CarItem";
 import { nanoid } from "nanoid";
 
-import { ModalWindow } from "../../components/Modal/Modal";
-import { CarDetails } from "../../components/CarDetails/CarDetails";
-import { StyledList, MainWrapper, StyledButtonLoad } from "./Catalog.styled";
-import { Filter } from "../../components/Filter/Filter";
-
-import { Layout } from "../../components/Layout/Layout";
-import CarItem from "../../components/CarItems/CarItem";
-import { useSelector } from "react-redux";
-import { selectCars } from "../../redux/cars/selectors";
-
-export const Catalog = () => {
-  const mainCarList = useSelector(selectCars);
-
+export const CarList = ({ data }) => {
   const currentFavorites = JSON.parse(localStorage.getItem("favoritesCars"));
-  const [filter, setFilter] = useState("");
-  const [carList, setCarList] = useState(mainCarList);
   const [currentSelectedCars, setCurrentSelectedCars] = useState(
     currentFavorites || []
   );
@@ -26,23 +21,6 @@ export const Catalog = () => {
     isOpen: false,
     carInfo: null,
   });
-
-  useEffect(() => {
-    setCarList(mainCarList);
-  }, [mainCarList]);
-
-  useEffect(() => {
-    localStorage.setItem("favoritesCars", JSON.stringify(currentSelectedCars));
-  }, [currentSelectedCars]);
-
-  useEffect(() => {
-    if (filter) {
-      const data = mainCarList.filter((car) => car.make === filter);
-      setCarList(data);
-    } else {
-      setCarList(mainCarList);
-    }
-  }, [filter]);
 
   const handleClose = () => {
     setModalState({
@@ -54,12 +32,18 @@ export const Catalog = () => {
   const handleClick = (carId) => {
     if (!currentSelectedCars.length) {
       setCurrentSelectedCars([carId]);
+      localStorage.setItem("favoritesCars", JSON.stringify([carId]));
     } else {
       const isCarSelected = currentSelectedCars.includes(carId);
       if (isCarSelected) {
         const filteredCars = currentSelectedCars.filter((id) => id !== carId);
+        localStorage.setItem("favoritesCars", JSON.stringify([filteredCars]));
         setCurrentSelectedCars(filteredCars);
       } else {
+        localStorage.setItem(
+          "favoritesCars",
+          JSON.stringify([[...currentSelectedCars, carId]])
+        );
         setCurrentSelectedCars([...currentSelectedCars, carId]);
       }
     }
@@ -75,10 +59,10 @@ export const Catalog = () => {
   return (
     <>
       <Layout />
-      <Filter filter={filter} setFilter={setFilter} />
+      <Filter />
       <MainWrapper>
         <StyledList>
-          {carList.map((car) => (
+          {data.map((car) => (
             <CarItem
               key={nanoid()}
               car={car}

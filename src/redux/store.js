@@ -9,11 +9,12 @@ import {
   REGISTER,
 } from "redux-persist";
 
-import { carsReducer } from "./cars/sliceCar";
+import { carsReducer, brandReducer } from "./cars/sliceCar";
 
 export const store = configureStore({
   reducer: {
     carList: carsReducer,
+    brandList: brandReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

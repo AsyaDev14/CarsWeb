@@ -17,14 +17,14 @@ import {
 const CarItem = ({ car, isFavorite, onClick, onLearnMore }) => {
   return (
     <li>
-      <StyledImg src={car.img} alt="car" height={"268px"} width={"276px"} />
+      <StyledImg src={car?.img} alt="car" height={"268px"} width={"276px"} />
       <OnClickHeart onClick={() => onClick(car.id)}>
         <FontAwesomeIcon icon={isFavorite ? heart : faHeart} />
       </OnClickHeart>
       <StyledTextBox>
         <StyledBox>
           <StyledText>
-            {car.model}
+            {car.make}
             <StyledSpan>{car.type},</StyledSpan>
             {car.year}
           </StyledText>

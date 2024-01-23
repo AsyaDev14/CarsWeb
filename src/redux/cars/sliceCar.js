@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllCarsThunk } from "./operations";
+import { fetchAllCarsThunk, fetchCarsBrandThunk } from "./operations";
 
 const initialState = {
   items: [],
@@ -15,14 +15,20 @@ const slice = createSlice({
     builder.addCase(fetchAllCarsThunk.fulfilled, (state, action) => {
       state.items = action.payload;
     });
-    // .addCase(addTodoThunk.fulfilled, (state, action) => {
-    //   state.items.push(action.payload);
-    // })
-    // .addCase(deleteTodoThunk.fulfilled, (state, action) => {
-    //   state.items = state.items.filter(
-    //     (todo) => todo.id !== action.payload.id
-    //   );
-    // });
+  },
+});
+const initialStateBrand = {
+  items: [],
+};
+const brandSlice = createSlice({
+  name: "brandList",
+  initialState: initialStateBrand,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchCarsBrandThunk.fulfilled, (state, action) => {
+      state.items = action.payload;
+    });
   },
 });
 export const carsReducer = slice.reducer;
+export const brandReducer = brandSlice.reducer;

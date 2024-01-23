@@ -1,16 +1,8 @@
 import { SelectPicker, Stack, Form } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
 import { StyledBox } from "./Filter.styled";
-const data = [
-  "Eugenia",
-  "Bryan",
-  "Linda",
-  "Nancy",
-  "Lloyd",
-  "Alice",
-  "Julia",
-  "Albert",
-].map((item) => ({ label: item, value: item }));
+import { selectBrand, selectCars } from "../../redux/cars/selectors";
+import { useSelector } from "react-redux";
 
 const priceOptions = [
   { label: "Low", value: "low" },
@@ -18,7 +10,9 @@ const priceOptions = [
   { label: "High", value: "high" },
 ];
 
-export const Filter = () => {
+export const Filter = ({ filter, setFilter }) => {
+  const carBrandsList = useSelector(selectBrand);
+  const data = carBrandsList.map((item) => ({ label: item, value: item }));
   return (
     <StyledBox>
       <Stack spacing={10} direction="column" alignItems="flex-start">
@@ -30,6 +24,9 @@ export const Filter = () => {
             searchable={false}
             style={{ width: 224 }}
             placeholder="Select car brand"
+            value={filter}
+            onSelect={(value) => setFilter(value)}
+            onClean={() => setFilter("")}
           />
         </Form.Group>
         <Form.Group>

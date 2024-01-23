@@ -15,3 +15,31 @@ export const fetchAllCarsThunk = createAsyncThunk(
     }
   }
 );
+export const fetchCarsBrandThunk = createAsyncThunk(
+  "carBrand/fetch",
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get("carBrand");
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// export const getPageThunk = createAsyncThunk(
+//   "advert/pagination",
+//   async ({ page, pageSize }, thunkAPI) => {
+//     try {
+//       const response = await axios.get("advert", {
+//         params: {
+//           _page: page,
+//           _limit: pageSize,
+//         },
+//       });
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
