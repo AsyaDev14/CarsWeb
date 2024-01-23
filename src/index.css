@@ -1,5 +1,5 @@
 @import url("../node_modules/modern-normalize/modern-normalize.css");
-
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap");
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -18,15 +18,27 @@ ul {
   padding: 0;
   list-style: none;
 }
+
 a {
   text-decoration: none;
 }
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
 p,
 h1,
 h2,
-h3 {
+h3,
+li {
   margin: 0;
+  padding: 0;
 }
+
 /* modal re-write liba styes */
 .rs-modal-wrapper {
   background: rgba(18, 20, 23, 0.5);
@@ -48,4 +60,11 @@ h3 {
   font-style: normal;
   font-weight: 500;
   line-height: 18px;
+}
+/* svg re-write */
+.svg-inline--fa {
+  color: rgb(35, 137, 245);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }

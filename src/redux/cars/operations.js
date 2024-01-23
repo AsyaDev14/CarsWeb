@@ -26,20 +26,3 @@ export const fetchCarsBrandThunk = createAsyncThunk(
     }
   }
 );
-
-// export const getPageThunk = createAsyncThunk(
-//   "advert/pagination",
-//   async ({ page, pageSize }, thunkAPI) => {
-//     try {
-//       const response = await axios.get("advert", {
-//         params: {
-//           _page: page,
-//           _limit: pageSize,
-//         },
-//       });
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );

@@ -1,8 +1,16 @@
-# React + Vite
+# [CarsWeb]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About Us
 
-Currently, two official plugins are available:
+Welcome to CarsWeb – your personal guide to the world of automobiles. We've crafted this space to make the search and purchase of a car easy and enjoyable.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Features
+
+- 🚗 Extensive selection of cars
+- 📸 Detailed descriptions and photos
+- 🔄 Updates on new arrivals
+
+### Technologies
+
+CarsWeb is built using React, ensuring a fast and responsive user experience.
+<img src='/src/images/image.png'>

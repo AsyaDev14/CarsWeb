@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
+export const ImgBox = styled.div`
+  position: relative;
+`;
+
 export const StyledImg = styled.img`
   border-radius: 14px;
 `;
+
 export const StyledBox = styled.div`
   display: flex;
   align-items: center;
@@ -10,13 +15,16 @@ export const StyledBox = styled.div`
   text-align: center;
   justify-content: space-between;
 `;
+
 export const MainWrapper = styled.div`
   margin-top: 10px;
 `;
+
 export const StyledTextBox = styled.div`
   width: 274px;
   margin-top: 14px;
 `;
+
 export const StyledList = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -27,12 +35,13 @@ export const StyledList = styled.ul`
 export const StyledText = styled.p`
   color: #121417;
   font-family: Manrope;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
   margin: 0;
 `;
+
 export const StyledSpan = styled.span`
   color: #3470ff;
   padding: 0 7px;
@@ -61,9 +70,9 @@ export const StyledItem = styled.li`
   line-height: 1.5;
   border-right: 1px solid rgba(18, 20, 23, 0.5);
   padding: 0 6px;
-  /* &:first-child {
-    padding: 0;
-  } */
+  &:last-child {
+    border-right: none;
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -81,16 +90,20 @@ export const StyledButton = styled.button`
 export const StyledButtonLoad = styled.button`
   display: flex;
   margin: 0 auto;
-  width: 274px;
-  height: 44px;
-  padding: 12px 99px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 12px;
-  background: #3470ff;
-  color: white;
+  margin-top: 60px;
+  color: #3470ff;
+  background: transparent;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  text-decoration-line: underline;
 `;
+
 export const OnClickHeart = styled.div`
   cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;

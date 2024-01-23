@@ -12,9 +12,17 @@ const slice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchAllCarsThunk.fulfilled, (state, action) => {
-      state.items = action.payload;
-    });
+    builder
+      .addCase(fetchAllCarsThunk.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchAllCarsThunk.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchAllCarsThunk.rejected, (state) => {
+        state.loading = false;
+      });
   },
 });
 const initialStateBrand = {

@@ -5,7 +5,7 @@ export const StyledNavBox = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 35%;
 `;

@@ -9,7 +9,6 @@ import {
   fetchAllCarsThunk,
   fetchCarsBrandThunk,
 } from "./redux/cars/operations";
-// import { Layout } from "./components/Layout";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -19,7 +18,6 @@ export const App = () => {
   }, [dispatch]);
   return (
     <>
-      {/* <Layout /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />

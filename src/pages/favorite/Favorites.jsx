@@ -4,11 +4,7 @@ import { useSelector } from "react-redux";
 import { selectCars } from "../../redux/cars/selectors";
 import { ModalWindow } from "../../components/Modal/Modal";
 import { CarDetails } from "../../components/CarDetails/CarDetails";
-import {
-  StyledList,
-  MainWrapper,
-  StyledButtonLoad,
-} from "../Catalog/Catalog.styled";
+import { StyledList, MainWrapper } from "../Catalog/Catalog.styled";
 import { Filter } from "../../components/Filter/Filter";
 import { Layout } from "../../components/Layout/Layout";
 import CarItem from "../../components/CarItems/CarItem";
@@ -37,16 +33,13 @@ export const Favorites = () => {
   };
 
   const handleClick = (carId) => {
-    if (!currentSelectedCars.length) {
-      setCurrentSelectedCars([carId]);
-    } else {
-      const isCarSelected = currentSelectedCars.includes(carId);
-      if (isCarSelected) {
-        const filteredCars = currentSelectedCars.filter((id) => id !== carId);
-        setCurrentSelectedCars(filteredCars);
-      } else {
-        setCurrentSelectedCars([...currentSelectedCars, carId]);
-      }
+    const isCarSelected = currentSelectedCars.includes(carId);
+
+    if (isCarSelected) {
+      // Remove the car from favorites
+      const updatedFavorites = currentFavorites.filter((id) => id !== carId);
+      localStorage.setItem("favoritesCars", JSON.stringify(updatedFavorites));
+      setCurrentSelectedCars(updatedFavorites);
     }
   };
 
@@ -77,7 +70,6 @@ export const Favorites = () => {
             />
           ))}
         </StyledList>
-        <StyledButtonLoad>Load more</StyledButtonLoad>
       </MainWrapper>
       <ModalWindow
         isOpen={modalState.isOpen}
