@@ -29,18 +29,6 @@ export const Filter = ({ filter, setFilter }) => {
             onClean={() => setFilter("")}
           />
         </Form.Group>
-        <Form.Group>
-          <Form.ControlLabel htmlFor="carPrice">
-            Price/ 1 hour
-          </Form.ControlLabel>
-          <SelectPicker
-            id="carPrice"
-            data={priceOptions}
-            searchable={false}
-            style={{ width: 224 }}
-            placeholder="To $"
-          />
-        </Form.Group>
       </Stack>
     </StyledBox>
   );
